@@ -3,7 +3,7 @@ package yetanotherx.bukkitplugin.BoosterTrax;
 import org.bukkit.Location;
 import org.bukkit.entity.Minecart;
 import org.bukkit.event.vehicle.VehicleListener;
-import org.bukkit.event.vehicle.VehicleEvent;
+import org.bukkit.event.vehicle.VehicleUpdateEvent;
 import org.bukkit.util.Vector;
 
 /*
@@ -25,7 +25,7 @@ import org.bukkit.util.Vector;
  */
 public class BoosterTraxVehicleListener extends VehicleListener {
 	
-	public void onVehicleUpdate(VehicleEvent event) {
+	public void onVehicleUpdate(VehicleUpdateEvent event) {
 		
 		if (event.getVehicle() instanceof Minecart) {
 			
