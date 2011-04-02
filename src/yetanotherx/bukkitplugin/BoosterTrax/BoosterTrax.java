@@ -27,37 +27,37 @@ import java.util.logging.Logger;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 public class BoosterTrax extends JavaPlugin {
-	
-	/**
-	 * Minecart listener class
-	 */
-	VehicleListener vehicleListener = new BoosterTraxVehicleListener();
-	
-	/**
-	 * Logger magic
-	 */
-	public static final Logger log = Logger.getLogger("Minecraft");
-	
-	/**
-	 * Outputs a message when disabled
-	 */
-	public void onDisable() {
-		log.info( "[" + this.getDescription().getName() + "]" + " Plugin disabled. (version" + this.getDescription().getVersion() + ")");
-	}
 
-	/**
-	 * Enables the plugin
-	 */
-	public void onEnable() {
+    /**
+     * Minecart listener class
+     */
+    VehicleListener vehicleListener = new BoosterTraxVehicleListener();
 
-		PluginManager pm = getServer().getPluginManager();
-		
-		//Event updates the database file on quit
-		pm.registerEvent(Event.Type.VEHICLE_UPDATE, vehicleListener, Event.Priority.Normal, this);
-		
-		//Print that the plugin has been enabled!
-		log.info( "[" + this.getDescription().getName() + "]" + " Plugin enabled! (version" + this.getDescription().getVersion() + ")");
+    /**
+     * Logger magic
+     */
+    public static final Logger log = Logger.getLogger("Minecraft");
 
-	}
+    /**
+     * Outputs a message when disabled
+     */
+    public void onDisable() {
+	log.info( "[" + this.getDescription().getName() + "]" + " Plugin disabled. (version" + this.getDescription().getVersion() + ")");
+    }
+
+    /**
+     * Enables the plugin
+     */
+    public void onEnable() {
+
+	PluginManager pm = getServer().getPluginManager();
+
+	//Event updates the database file on quit
+	pm.registerEvent(Event.Type.VEHICLE_UPDATE, vehicleListener, Event.Priority.Normal, this);
+
+	//Print that the plugin has been enabled!
+	log.info( "[" + this.getDescription().getName() + "]" + " Plugin enabled! (version" + this.getDescription().getVersion() + ")");
+
+    }
 
 }
