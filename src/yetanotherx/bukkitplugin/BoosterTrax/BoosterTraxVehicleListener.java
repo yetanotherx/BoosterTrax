@@ -7,7 +7,7 @@ import org.bukkit.event.vehicle.VehicleUpdateEvent;
 import org.bukkit.util.Vector;
 
 /*
- * BoosterTrax Version 1.0 - Boost minecarts easily
+ * BoosterTrax Version 1.1 - Boost minecarts easily
  * Copyright (C) 2011 Yetanotherx <yetanotherx -a--t- gmail -dot- com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -34,16 +34,8 @@ public class BoosterTraxVehicleListener extends VehicleListener {
 	    Location location = minecart.getLocation();
 	    location.setY( location.getY() - 1 );
 
-	    double multiplier = 1.0;
-
-	    switch( minecart.getWorld().getBlockTypeIdAt(location) ) {
-	    case 41: //Gold block
-		multiplier = 9.0;
-		break;
-	    case 57: //Diamond block
-		multiplier = 16.0;
-		break;
-	    }
+	    
+	    double multiplier = BoosterTrax.config.getDouble(Integer.toString(minecart.getWorld().getBlockTypeIdAt(location)), 1);
 
 	    if( multiplier != 1.0 ) {
 
